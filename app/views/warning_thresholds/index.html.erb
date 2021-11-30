@@ -1,7 +1,10 @@
 <h1>WarningThresholds</h1>
-<% @warning_thresholds.each do |warning_threshold| %>
-  <li>
-    <%= warning_threshold.city %>
-    <%= warning_threshold.threshold %>
-  </li>
-<% end %>
+<ul>
+  <% @warning_thresholds.each do |warning_threshold| %>
+    <li>
+      <%= link_to warning_threshold.city, warning_threshold %>
+    </li>
+  <% end %>
+
+  <%= link_to "New warning threshold", new_warning_threshold_path %>
+</ul>

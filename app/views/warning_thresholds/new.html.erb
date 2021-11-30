@@ -1,0 +1,17 @@
+<h1>New Warning Threshold</h1>
+
+<%= form_with model: @warning_threshold do |form| %>
+  <div>
+    <%= form.label :city %><br>
+    <%= form.text_field :city %>
+  </div>
+
+  <div>
+    <%= form.label :threshold %><br>
+    <%= form.text_area :threshold %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
