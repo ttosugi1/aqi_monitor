@@ -1,0 +1,2 @@
+class WarningThreshold < ApplicationRecord
+end

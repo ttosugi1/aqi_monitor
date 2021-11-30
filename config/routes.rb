@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'warning_thresholds', to: 'warning_thresholds#index'
+  get 'warning_thresholds/:id', to: 'warning_thresholds#show'
 end
