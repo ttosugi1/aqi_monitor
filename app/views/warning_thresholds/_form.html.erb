@@ -1,22 +1,23 @@
 <%= form_with model: @warning_threshold do |form| %>
-  <h2>
-    <%= form.label :city %><br>
-    <%= form.text_field :city %>
-  </h2>
+  <div class="mb-3">
+    <%= form.label :city, class: 'form-label' %>
+    <%= form.text_field :city, class: 'form-control' %>
+  </div>
   <% @warning_threshold.errors.full_messages_for(:city).each do |message| %>
-    <div><%= message %></div>
+    <div style="color:red"><%= message %></div>
   <% end %>
 
-  <h2>
-    <%= form.label :threshold %><br>
-    <%= form.text_area :threshold %>
-  </h2>
+  <div class="mb-3">
+    <%= form.label :threshold, class: 'form-label' %>
+    <%= form.number_field :threshold, in: 0..10000, class: 'form-control' %>
+  </div>
+
   <% @warning_threshold.errors.full_messages_for(:threshold).each do |message| %>
-    <div><%= message %></div>
+    <div style="color:red"><%= message %></div>
   <% end %>
 
-  <div>
-    <%= form.submit %>
+  <div class="mt-5">
+    <%= form.submit class: 'form-control' %>
   </div>
 <% end %>
 

@@ -3,16 +3,25 @@
 <% if @warning_threshold.nil? %>
   <p>You don't have a warning threshold set yet!</p>
   <%= link_to "New warning threshold", new_warning_threshold_path %>
+<% elsif @pm25.nil? %>
+  <p>
+    Couldn't grab data for <%= @warning_threshold.city %> today. Please try again later. 😐
+  </p>
+  <div class="mt-5">
+    <%= link_to "Show settings", @warning_threshold %>
+  </div>
 <% else %>
   <h2>
     Today's PM25 level in <%= @warning_threshold.city %> is <%= @pm25 %>.
   </h2>
-  <p>
+  <p class="mt-5">
     <% if @pm25 > @warning_threshold.threshold %>
       We are above your <%= @warning_threshold.threshold %> threshold 😫
     <% else %>
       We are at or below your <%= @warning_threshold.threshold %> threshold 😃
     <% end %>
   </p>
-  <%= link_to "Show settings", @warning_threshold %>
+  <div class="mt-5">
+    <%= link_to "Show settings", @warning_threshold %>
+  </div>
 <% end %>
