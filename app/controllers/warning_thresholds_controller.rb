@@ -1,4 +1,6 @@
 class WarningThresholdsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @warning_thresholds = WarningThreshold.all
   end
