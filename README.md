@@ -23,14 +23,15 @@ https://localhost:3000
 - User can add a city and a threshold for PM 2.5 which are fine particulates
 - User can edit their city and threshold
 - User can delete their city
-- Edge cases - city doesn't have any available
-- Threshold should be a positive number
+- Edge cases
+  - City doesn't have any data available
+  - Threshold should be a positive number
 - Very basic permissions on the server
 
 ## TODO
 
-- Give a 403 instead of a 500 if user tries to get other people's warnings
+- Give a 403 instead of a 500 if user tries to get other people's warnings (use something like warden to make the code cleaner)
 - Search for available cities instead of open input.
-- Send SMS notification if levels are higher than threshold (check daily)
-- Deploy
+- Send SMS notification if levels are higher than threshold (check daily with a cron job)
+- Deploy somewhere
 - Tests
