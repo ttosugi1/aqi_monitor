@@ -1,19 +1,21 @@
-<h1>Warning Threshold Setting</h1>
+<h1>Warning Threshold Settings</h1>
 
+<h2>City</h2>
 <p>
   <%= @warning_threshold.city %>
 </p>
+<h2>Threshold</h2>
 <p>
   <%= @warning_threshold.threshold %>
 </p>
 
-<h2>Current value</h2>
+<h2>Today's PM25 level</h2>
 <p><%= @pm25 %></p>
 
-<ul>
-  <li><%= link_to "Edit", edit_warning_threshold_path(@warning_threshold) %></li>
-  <li><%= link_to "Destroy", warning_threshold_path(@warning_threshold),
+<div>
+  <span><%= link_to "Edit", edit_warning_threshold_path(@warning_threshold) %></span>
+  <span><%= link_to "Delete", warning_threshold_path(@warning_threshold),
                              method: :delete,
-                             data: { confirm: "Are you sure?" } %></li>
-</ul>
-</p>
+                             data: { confirm: "Are you sure?" } %></span>
+</div>
+<%= link_to "Back to main page", root_path %>
