@@ -10,10 +10,25 @@ class AqiService
     AqiService.new.get_pm25(city)
   end
 
+  def self.validate_city(city)
+    AqiService.new.validate_city(city)
+  end
+
   def initialize
     @conn = Faraday.new(url: BASE_URL) do |conn|
       conn.use Faraday::Response::RaiseError
       conn.adapter Faraday::Adapter::NetHttp
+    end
+  end
+
+  def validate_city(city)
+    response = conn.get("#{BASE_URL}/#{URI.escape(city)}/?token=#{TOKEN}")
+    if response.body
+      raw = JSON.parse(response.body)
+      if raw['status'] == 'error' && raw['data'] == 'Unknown station'
+        return false
+      end
+      true
     end
   end
 
