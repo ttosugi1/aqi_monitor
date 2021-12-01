@@ -1,4 +1,4 @@
-<h1>Warning Threshold Settings</h1>
+<h1 class="mb-5">Warning Threshold Settings</h1>
 
 <h2>City</h2>
 <p>
@@ -12,10 +12,16 @@
 <h2>Today's PM25 level</h2>
 <p><%= @pm25 %></p>
 
-<div>
-  <span><%= link_to "Edit", edit_warning_threshold_path(@warning_threshold) %></span>
-  <span><%= link_to "Delete", warning_threshold_path(@warning_threshold),
-                             method: :delete,
-                             data: { confirm: "Are you sure?" } %></span>
+<div class="mb-5">
+  <div class="row">
+    <div class="col-2">
+      <span><%= link_to "Edit", edit_warning_threshold_path(@warning_threshold) %></span>
+    </div>
+    <div class="col-2">
+      <span><%= link_to "Delete", warning_threshold_path(@warning_threshold),
+                               method: :delete,
+                               data: { confirm: "Are you sure?" } %></span>
+    </div>
+  </div>
 </div>
 <%= link_to "Back to main page", root_path %>
