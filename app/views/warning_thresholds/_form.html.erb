@@ -1,0 +1,21 @@
+<%= form_with model: @warning_threshold do |form| %>
+  <div>
+    <%= form.label :city %><br>
+    <%= form.text_field :city %>
+  </div>
+  <% @warning_threshold.errors.full_messages_for(:city).each do |message| %>
+    <div><%= message %></div>
+  <% end %>
+
+  <div>
+    <%= form.label :threshold %><br>
+    <%= form.text_area :threshold %>
+  </div>
+  <% @warning_threshold.errors.full_messages_for(:threshold).each do |message| %>
+    <div><%= message %></div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

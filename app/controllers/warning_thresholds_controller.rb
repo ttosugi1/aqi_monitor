@@ -22,6 +22,26 @@ class WarningThresholdsController < ApplicationController
     end
   end
 
+  def edit
+    @warning_threshold = WarningThreshold.find(params[:id])
+  end
+
+  def update
+    @warning_threshold = WarningThreshold.find(params[:id])
+
+    if @warning_threshold.update(warning_threshold_params)
+      redirect_to @warning_threshold
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @warning_threshold = WarningThreshold.find(params[:id])
+    @warning_threshold.destroy
+    redirect_to root_path
+  end
+
   private
 
   def warning_threshold_params

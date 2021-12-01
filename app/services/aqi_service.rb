@@ -18,6 +18,11 @@ class AqiService
   def get_pm25(city)
     response = conn.get(BASE_URL + '/' + city + '/?token=' + TOKEN)
     if response.body
+      raw = JSON.parse(response.body)
+      status = raw.dig('status')
+      if status == 'error'
+        return nil
+      end
       JSON.parse(response.body).dig('data', 'iaqi', 'pm25', 'v')
     else
       nil

@@ -9,4 +9,11 @@
 
 <h2>Current value</h2>
 <p><%= @pm25 %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_warning_threshold_path(@warning_threshold) %></li>
+  <li><%= link_to "Destroy", warning_threshold_path(@warning_threshold),
+                             method: :delete,
+                             data: { confirm: "Are you sure?" } %></li>
+</ul>
 </p>
