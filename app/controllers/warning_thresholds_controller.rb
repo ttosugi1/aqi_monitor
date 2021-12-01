@@ -4,7 +4,6 @@ class WarningThresholdsController < ApplicationController
   def index
     @warning_threshold = WarningThreshold.find_by(user_id: current_user.id)
     @pm25 = AqiService.call(@warning_threshold.city) if @warning_threshold
-    puts @pm25
   end
 
   def show
